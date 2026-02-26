@@ -1,0 +1,20 @@
+name: CI do Dashboard Docker
+
+# 1. Quando é que isto vai rodar? (O Gatilho)
+on:
+  push:
+    branches: [ "main" ]
+
+# 2. O que é que ele vai fazer? (O Trabalho)
+jobs:
+  build:
+    runs-on: ubuntu-latest # Usa um servidor Linux do próprio GitHub gratuitamente
+
+    steps:
+    # Passo A: O servidor "descarrega" o nosso código do repositório
+    - name: Copiar os ficheiros do repositório
+      uses: actions/checkout@v4
+
+    # Passo B: O servidor executa o comando do Docker para construir a imagem baseada no NGINX
+    - name: Construir a Imagem Docker do NGINX
+      run: docker build . --file Dockerfile --tag dashboard-nginx:latest
