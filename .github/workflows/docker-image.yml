@@ -17,4 +17,4 @@ jobs:
 
     # Passo B: O servidor executa o comando do Docker para construir a imagem baseada no NGINX
     - name: Construir a Imagem Docker do NGINX
-      run: docker build . --file Dockerfile --tag dashboard-nginx:latest
+      run: docker build . --file dockerfile --tag dashboard-nginx:latest
